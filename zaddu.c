@@ -70,7 +70,7 @@ void eac_end_256_smult(mpz_t x1, mpz_t y1,
 
   /*use EAC*/
 
-  for (i=0; i<1; i++){
+  for (i=0; i<32; i++){
     for (j=0; j<8; j++){
 
       bit = (eac[i] & (1<<j))>>j;
