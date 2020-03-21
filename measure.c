@@ -10,8 +10,8 @@
 #include "eac_param_331.h"
 
 
-#define NTEST 10000 // nombre de fois ou on repete le meme jeu de donnees
-#define NSAMPLES 1000 // nombre differents de jeu de donnees
+#define NTEST 10000 // number of tests per sample
+#define NSAMPLES 1000 // number of samples
 
 
 /**** Measurements procedures according to INTEL white paper
@@ -20,10 +20,6 @@
  
 *****/
 
-// ATTENTION !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// Ne pas oublier de desactiver le turbo boost
-// /bin/sh -c "/usr/bin/echo 1 > /sys/devices/system/cpu/intel_pstate/no_turbo
-// pour fiabiliser la mesure
 
 inline static uint64_t cpucyclesStart (void) {
 
@@ -84,8 +80,7 @@ int main() {
   
   for(int i=0;i<NTEST;i++)
     {
-      // appel de la fonction a mesurer a mettre ici
-      // juste pour chauffer les caches
+      // Heat caches
       eac_end_256_smult(x1,y1,select,eac,p,beta);
     }
   
@@ -93,7 +88,7 @@ int main() {
   for(int i=0;i<NSAMPLES;i++)
     {
 
-      // initialiser un nouveau jeu de donnees a tester
+      // init new sample
       if ( fscanf(fp,"%s %s %s %u", s1,s2, s3, &select)!= 4 ) {
 	printf("Read error in file %s\n",DATA);
 	return -1;
@@ -108,7 +103,7 @@ int main() {
       for(int j=0;j<NTEST;j++)
 	{
 	  t1 = cpucyclesStart();
-	  // appeler la fonction ici avec toujours le meme jeu de donnees
+	  // measure function exec time
 	  eac_end_256_smult(x1,y1,select,eac,p,beta);
 	  t2 = cpucyclesStop();
 	  if(timer>t2-t1) timer = t2-t1;
