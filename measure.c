@@ -7,7 +7,7 @@
 #include <gmp.h>
 
 #include "zaddu.h"
-#include "eac_param_358.h"
+#include "eac_param_331.h"
 
 
 #define NTEST 10000 // nombre de fois ou on repete le meme jeu de donnees
