@@ -36,13 +36,15 @@ int main() {
     mpz_set_str(x2,sx2,10);
     mpz_set_str(y2,sy2,10);
     
-    mpz_init_set_ui(z,1);
+    mpz_init_set_ui(z,1)
     for(j=0; j<32; j++){
       eac[j] = 0;
       for (k=0; k<8; k++)
 	eac[j] |= ((s3[8*j+k]-'0')<<k);
     }
-    eac_end_256_smult(x1,y1,z,1-select,eac,p,beta);
+    select ^=1;
+	  
+    eac_end_256_smult(x1,y1,z,select,eac,p,beta);
     eac_to_affine(x1,y1,z,p);
     
     if (mpz_cmp(x1,x2)||mpz_cmp(y1,y2)){
