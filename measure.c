@@ -98,7 +98,8 @@ int main() {
 	for (k=0; k<8; k++)
 	  eac[j] |= ((s3[8*j+k]-'0')<<k);
       }
-      
+      select ^=1;
+	  
       timer = (unsigned long long int)0x1<<63;
       for(int j=0;j<NTEST;j++)
 	{
