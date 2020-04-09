@@ -79,7 +79,7 @@ int main() {
   for(int i=0;i<NTEST;i++)
     {
       // Heat caches
-      eac_end_256_smult(x1,y1,select,eac,p,beta);
+      eac_end_256_smult(x1,y1,z,select,eac,p,beta);
     }
   
   // timing
