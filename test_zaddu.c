@@ -36,7 +36,7 @@ int main() {
     mpz_set_str(x2,sx2,10);
     mpz_set_str(y2,sy2,10);
     
-    mpz_init_set_ui(z,1)
+    mpz_init_set_ui(z,1);
     for(j=0; j<32; j++){
       eac[j] = 0;
       for (k=0; k<8; k++)
