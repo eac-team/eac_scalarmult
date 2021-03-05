@@ -10,7 +10,7 @@
 #include "eac_param_331.h"
 
 
-#define NTEST 1000 // nombre de fois ou on repete le meme jeu de donnees
+#define NTEST 100 // nombre de fois ou on repete le meme jeu de donnees
  // nombre differents de jeu de donnees
 
 
@@ -117,9 +117,9 @@ int main() {
 	{
 	  t1 = cpucyclesStart();
 	  // appeler la fonction ici avec toujours le meme jeu de donnees
-	  eac_end_256_smult(x1,y1,z,select,eac,p,beta);
+	  //eac_end_256_smult(x1,y1,z,select,eac,p,beta);
 	  //eac_to_affine(x1,y1,z,p);
-	  //eac_end_256_smult_x_only(x1,y1,select,eac,p,beta);
+	  eac_end_256_smult_x_only(x1,y1,select,eac,p,beta);
 	  
 	  t2 = cpucyclesStop();
 	  if(timer>t2-t1) timer = t2-t1;
