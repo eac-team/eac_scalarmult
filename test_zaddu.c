@@ -3,7 +3,7 @@
 #include "eac_param_358.h"
 
 
-int main() {
+int main(int argc, char ** argv) {
 
   FILE * fp = fopen(DATA, "r");
   mpz_t x,y,x1, y1, x2, y2, z, p, beta;

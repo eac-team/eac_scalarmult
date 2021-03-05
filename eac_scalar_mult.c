@@ -111,7 +111,7 @@ void eac_scalarmult(mpz_t x1, mpz_t y1, const unsigned char select, const unsign
   mpz_clears(x2, y2, A, z, beta, p, NULL);
 }
 
-int main()
+int main(int argc, char**argv)
 {
   mpz_t x1, y1;
   unsigned char select = 1, eac[32] = {0,0,0,0,0,0,0,0,
